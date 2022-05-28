@@ -2,9 +2,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nginx-service
-  namespace: hw-11 
+  namespace: hw-12 
 spec:
-  type: NodePort
+  type: NodePort 
   selector:
     app: nginx-app
     type: front-end
@@ -18,7 +18,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
-  namespace: hw-11 
+  namespace: hw-12 
   labels:
     app: nginx-app
     type: front-end
@@ -34,6 +34,20 @@ spec:
         app: nginx-app
         type: front-end
     spec:
+      volumes:
+      - name: nginx-indexhtml
+        configMap:
+          name: nginx-configmap
       containers:
         - name: nginx-container
           image: nginx:latest
+          resources:
+            requests:
+              cpu: 50m
+              memory: 50Mi
+            limits:
+              cpu: 150m
+              memory: 150Mi
+          volumeMounts:
+          - mountPath: /usr/share/nginx/html/
+            name: nginx-indexhtml
