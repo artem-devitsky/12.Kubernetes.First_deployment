@@ -1,7 +1,7 @@
-### 12.Kubernetes.First_deployment
+# 12.Kubernetes.First_deployment
 
 ## Nginx server deployment
-# 00-namespace.yml
+### 00-namespace.yml
 ```yaml
 kind: Namespace
 apiVersion: v1
@@ -11,7 +11,7 @@ metadata:
     name: hw-12
 ```
 
-# 01-config-map.yml
+### 01-config-map.yml
 ```yaml
 kind: ConfigMap 
 apiVersion: v1 
@@ -27,3 +27,4 @@ data:
     </br>
     </html>
 ```
+### 03-nginx.yml
