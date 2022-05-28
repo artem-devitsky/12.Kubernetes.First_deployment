@@ -1,0 +1,7 @@
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: Runner
+metadata:
+  name: test-runner
+spec:
+  repository: artem-devitsky/12.Kubernetes.First_deployment
+  env: []
